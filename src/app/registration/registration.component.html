@@ -1,0 +1,125 @@
+<h1>Registration</h1>
+
+<h3>Account Information</h3>
+
+<form name="user_reg"  
+#formData='ngForm' 
+(submit)="onSubmit(formData)">
+  <label for="fname">First Name</label>
+  <input type="text" name='fname' id="fname"
+  required
+  minlength="2"
+  maxlength="24"
+  pattern="^[a-zA-Z ]+$"
+  [(ngModel)] = user.fname
+  #fname  = "ngModel"
+  >
+  <p class="valid" *ngIf="!fname.valid  && (fname.dirty || fname.touched)">First name must be at least 2 characters</p>
+  
+  <p></p>
+  <label for="lname">Last Name</label>
+  <input type="text" name='lname' id="lname"
+  required
+  minlength="2"
+  maxlength="24"
+  pattern="^[a-zA-Z ]+$"
+  [(ngModel)] = user.lname
+  #lname = "ngModel"
+  >
+  <p class="valid" *ngIf="!lname.valid && (lname.dirty || lname.touched)">Last name must be at least 2 characters</p>
+  
+  <p></p>
+  <label for="email">Email</label>
+  <input type="email" name='email' id="email"
+  required
+  minlength="5"
+  maxlength="24"
+  pattern = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
+  [(ngModel)] = user.email
+  #email = "ngModel"
+  >
+  <p class="valid" *ngIf="email.invalid && (email.dirty || email.touched)">email must be valid</p>
+  
+
+  <p></p>
+  <label for="pswd">Password</label>
+  <input type="password" name='pswd'id="pswd"
+  required
+  minlength="8"
+  maxlength="24"
+  [(ngModel)] = user.pswd
+  #pswd = "ngModel"
+  >
+  <p class="valid" *ngIf="pswd.invalid && (pswd.dirty || pswd.touched)">Password must be at least 8 characters</p>
+  
+
+  <p></p>
+  <label for="pswd_conf">PW Confirmation</label>
+  <input type="password" name='pswd_conf'id="pswd_conf"
+  required
+  minlength="8"
+  maxlength="24"
+  [(ngModel)] = user.pswd_conf
+  #pswd_conf = "ngModel">
+  <p class="valid" *ngIf="!(user.pswd_conf == user.pswd)">Passwords must match!</p>
+
+  <p></p>
+  <label for="street1">Street Address</label>
+  <input type="text" name='street1' id="street1"
+  required
+  minlength="2"
+  maxlength="24"
+  [(ngModel)] = user.street1
+  #street1 = "ngModel"
+  >
+  <p class="valid" *ngIf="street1.invalid && (street1.dirty || street1.touched)">Address must be at least 2 characters</p>
+  
+  <p></p>
+  <label for="street2">Unit/Apt #</label>
+  <input type="text" name='street2' id="street2"
+  [(ngModel)] = user.street2
+  #street2 = "ngModel"
+  >
+
+  <p></p>
+  <label for="city">City</label>
+  <input type="text" name='city' id="city"
+  required
+  minlength="2"
+  maxlength="24"
+  pattern="^[a-zA-Z ]+$"
+  [(ngModel)] = user.city
+  #city = "ngModel"
+  >
+  <p class="valid" *ngIf="city.invalid && (city.dirty || city.touched)">City name must be at least 2 characters</p>
+  
+  
+  <p>I'm feeling lucky*:</p>
+  <input type="radio" id="luck_true" name="lucky" value=true
+  required
+  [(ngModel)] = user.lucky
+  #lucky = "ngModel">
+  <label for="luck_true">Yes</label>
+  
+  <input type="radio" id="luck_false" name="lucky" value=false 
+  required
+  [(ngModel)] = user.lucky
+  #lucky = "ngModel">
+  <label for="luck_false">No</label>
+  <p class="valid" *ngIf="!lucky.valid">Select one</p>
+  
+
+ 
+  <p></p>
+  <label for="state">State</label>
+  <select name="state" id="state">
+      <option value="AK">Alaska</option>
+      <option value="CA">California</option>
+      <option value="TX">Texas</option>
+      <option value="WA">Washington</option>
+  </select>
+  <br>
+  <input *ngIf="formData.valid" type="submit" value="Register">
+  <input *ngIf="!formData.valid" type="submit" value="Register" disabled>
+
+</form>

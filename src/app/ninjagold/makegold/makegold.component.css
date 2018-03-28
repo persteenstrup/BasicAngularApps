@@ -1,0 +1,7 @@
+.place {
+    width:20%;
+    height:180px;
+    border:4px solid black;
+    display: inline-block;
+    vertical-align: top;
+}

@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <h1>Switchboard (toggle switches on/off)</h1>
+
+  <div class="border" *ngFor="let item of on_off; let idx = index">
+    <div [ngClass]="{'on': (item=='ON'), 'button':'true'}" (click)="onButtonClick(item,idx)">
+      <p>{{item}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.colorbar {
+    width:50px;
+    height:50px;
+    border: 1px solid black;
+    display:inline-block;
+}
+
+.selected {
+    background-color:yellow;
+}
+
+.wrapper {
+    border:2px solid black;
+    margin:20px;
+    width:700px;
+}
+
+table {
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: left;
+    padding-left: 10px;
+    border: 1px solid black;
+}
